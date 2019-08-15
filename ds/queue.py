@@ -10,7 +10,7 @@ class Queue:
         self.queue.append(value)
 
     def deque(self):
-        self.queue.pop(0)
+        return self.queue.pop(0)
 
     def __len__(self):
         return len(self.queue)
