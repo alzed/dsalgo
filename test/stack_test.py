@@ -3,8 +3,8 @@ from ds.stack import Stack
 
 class StackTest(unittest.TestCase):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.test_stack = Stack()
 
     def test_push(self):
