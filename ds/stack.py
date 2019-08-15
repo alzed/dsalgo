@@ -10,7 +10,7 @@ class Stack:
         self.stack.append(value)
 
     def pop(self):
-        self.stack.pop()
+        return self.stack.pop()
 
     def __len__(self):
         return len(self.stack)

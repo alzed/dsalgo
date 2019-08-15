@@ -10,8 +10,12 @@ class StackTest(unittest.TestCase):
     def test_push(self):
         self.test_stack.push(4)
         self.test_stack.push(5)
+        
         self.assertEqual(self.test_stack.to_array(), [5, 4])
    
     def test_pop(self):
-        self.assertEqual(self.test_stack.pop(), 4)
-        self.assertEqual(self.test_stack.to_array(), [5])
+        self.test_stack.push(4)
+        self.test_stack.push(5)
+
+        self.assertEqual(self.test_stack.pop(), 5)
+        self.assertEqual(self.test_stack.to_array(), [4])
