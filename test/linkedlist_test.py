@@ -8,10 +8,10 @@ class LinkedlistTest(unittest.TestCase):
         self.test_linkedlist = Linkedlist()
 
     def test_to_array(self):
-        self.test_linkedlist.append(4)
-        self.test_linkedlist.append(5)
+        self.test_linkedlist.prepend(4)
+        self.test_linkedlist.prepend(5)
 
-        self.assertEqual(self.test_linkedlist.to_array(), [4, 5])
+        self.assertEqual(self.test_linkedlist.to_array(), [5, 4])
 
     def test_append(self):
         self.test_linkedlist.append(4)
@@ -41,8 +41,8 @@ class LinkedlistTest(unittest.TestCase):
 
     def test_length(self):
         self.test_linkedlist.append(4)
-        self.test_linkedlist.append(5)
+        self.test_linkedlist.prepend(5)
         self.test_linkedlist.append(4)
-        self.test_linkedlist.append(5)
+        self.test_linkedlist.prepend(5)
 
         self.assertEqual(len(self.test_linkedlist), 4)
