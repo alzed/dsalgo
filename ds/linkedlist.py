@@ -51,8 +51,13 @@ class Linkedlist:
         return value
 
     def shift(self):
-        pass
-
+        if self.is_empty():
+            raise IndexError('Cannot pop from empty list')
+        head = self._head
+        self._head = head.next
+        self._size -= 1
+        return head.data
+        
     def __len__(self):
         return self._size
 
