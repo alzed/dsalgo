@@ -40,10 +40,21 @@ class Linkedlist:
             node = node.next
             i += 1
         node.data = item
-        self._size += 1
 
     def __getitem__(self, index):
         return (self.to_array())[index]
+
+    def insert(self, index, item):
+        index = self._size - index if index < 0 else index
+        if index not in range(self._size):
+            raise IndexError('Linkedlist index out of range')
+        node = self._head
+        i = 0
+        while i < index-1:
+            node = node.next
+            i += 1
+        node.next = Node(item, node.next)
+        self._size += 1
 
     def pop(self):
         if self.is_empty():
@@ -111,10 +122,22 @@ class DoublyLinkedlist:
         return array
 
     def pop(self):
-        pass
+        if not self._size:
+            raise IndexError('Cannot pop from empty list')
+        data = self._trailer.prev
+        data.prev.next = self._trailer
+        self._trailer.prev = data.prev
+        self._size -= 1
+        return data.data
 
     def shift(self):
-        pass
+        if not self._size:
+            raise IndexError('Cannot shift from empty list')
+        data = self._header.next
+        self._header.next = data.next
+        data.prev = self._header
+        self._size -= 1
+        return data.data
 
     def __len__(self):
         return self._size

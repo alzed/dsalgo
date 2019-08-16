@@ -32,6 +32,20 @@ class LinkedlistTest(unittest.TestCase):
 
         self.assertEqual(self.test_linkedlist.to_array(), [4, 6])
 
+    def test_get(self):
+        self.test_linkedlist.append(4)
+        self.test_linkedlist.append(5)
+
+        self.assertEqual(self.test_linkedlist[1], 5)
+
+    def test_insert(self):
+        self.test_linkedlist.append(4)
+        self.test_linkedlist.append(5)
+        self.test_linkedlist.append(7)
+        self.test_linkedlist.insert(2, 6)
+
+        self.assertEqual(self.test_linkedlist.to_array(), [4, 5, 6, 7])
+
     def test_pop(self):
         self.test_linkedlist.append(4)
         self.test_linkedlist.append(5)
