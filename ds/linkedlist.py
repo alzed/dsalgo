@@ -33,7 +33,7 @@ class Linkedlist:
         return array
 
     def pop(self):
-        if self.is_empty:
+        if self.is_empty():
             raise IndexError('Cannot pop from empty list')
         current = self._head
         prev = None
@@ -47,6 +47,7 @@ class Linkedlist:
         else:
             prev.next = None
             self._tail = prev
+        self._size -=1
         return value
 
     def shift(self):
