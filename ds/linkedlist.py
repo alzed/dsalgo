@@ -47,7 +47,7 @@ class Linkedlist:
         else:
             prev.next = None
             self._tail = prev
-        self._size -=1
+        self._size -= 1
         return value
 
     def shift(self):
@@ -57,7 +57,7 @@ class Linkedlist:
         self._head = head.next
         self._size -= 1
         return head.data
-        
+
     def __len__(self):
         return self._size
 
