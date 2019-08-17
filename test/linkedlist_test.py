@@ -91,6 +91,27 @@ class DoublyLinkedlistTest(unittest.TestCase):
         
         self.assertEqual(self.test_doubly_linkedlist.to_array(), [5, 4])
 
+    def test_set(self):
+        self.test_doubly_linkedlist.append(4)
+        self.test_doubly_linkedlist.append(5)
+        self.test_doubly_linkedlist[1] = 6
+
+        self.assertEqual(self.test_doubly_linkedlist.to_array(), [4, 6])
+
+    def test_get(self):
+        self.test_doubly_linkedlist.append(4)
+        self.test_doubly_linkedlist.append(5)
+
+        self.assertEqual(self.test_doubly_linkedlist[1], 5)
+
+    def test_insert(self):
+        self.test_doubly_linkedlist.append(4)
+        self.test_doubly_linkedlist.append(5)
+        self.test_doubly_linkedlist.append(7)
+        self.test_doubly_linkedlist.insert(2, 6)
+
+        self.assertEqual(self.test_doubly_linkedlist.to_array(), [4, 5, 6, 7])
+
     def test_pop(self):
         self.test_doubly_linkedlist.append(4)
         self.test_doubly_linkedlist.append(5)
@@ -112,3 +133,4 @@ class DoublyLinkedlistTest(unittest.TestCase):
         self.test_doubly_linkedlist.prepend(5)
 
         self.assertEqual(len(self.test_doubly_linkedlist), 4)   
+        

@@ -101,6 +101,14 @@ class DoublyLinkedlist:
         self._header.next = self._trailer
         self._size = 0
 
+    def to_array(self):
+        array = []
+        node = self._header.next
+        while node != self._trailer:
+            array.append(node.data)
+            node = node.next
+        return array
+
     def prepend(self, item):
         self._header.next = DNode(item, self._header, self._header.next)
         self._size += 1
@@ -113,13 +121,31 @@ class DoublyLinkedlist:
         pre.next = new 
         self._size += 1
     
-    def to_array(self):
-        array = []
+    def __setitem__(self, index, item):
+        index = self._size - index if index < 0 else index
+        if (0 < index >= self._size):
+            raise IndexError('Linkedlist index out of range')
         node = self._header.next
-        while node != self._trailer:
-            array.append(node.data)
+        i = 0
+        while node and i < index:
             node = node.next
-        return array
+            i += 1
+        node.data = item
+
+    def __getitem__(self, index):
+        return (self.to_array())[index]
+
+    def insert(self, index, item):
+        index = self._size - index if index < 0 else index
+        if index not in range(self._size):
+            raise IndexError('Linkedlist index out of range')
+        node = self._header.next
+        i = 0
+        while i < index-1:
+            node = node.next
+            i += 1
+        node.next = DNode(item, node, node.next)
+        self._size += 1
 
     def pop(self):
         if not self._size:
