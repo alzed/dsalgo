@@ -40,8 +40,9 @@ class BSTTest(unittest.TestCase):
         self.test_bst.insert(2)
         self.test_bst.insert(3)
 
-        self.assertEqual(self.test_bst.search(5), True)
-        self.assertEqual(self.test_bst.search(7), False)
+        self.assertEqual(5 in self.test_bst, True)
+        self.assertEqual(2 not in self.test_bst, False)
+        self.assertEqual(7 not in self.test_bst, True)
     
     def test_min(self):
         self.test_bst.insert(5)
