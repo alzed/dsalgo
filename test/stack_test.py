@@ -34,12 +34,12 @@ class StackTest(unittest.TestCase):
 
         self.assertEqual(len(self.test_stack), 2)
 
-    def test_top(self):
+    def test_peek(self):
         self.test_stack.push(4)
         self.test_stack.push(5)
         self.test_stack.push(3)
 
-        self.assertEqual(self.test_stack.top(), 3)
+        self.assertEqual(self.test_stack.peek(), 3)
 
     def test_is_empty(self):
         self.assertEqual(self.test_stack.is_empty(), True)

@@ -18,7 +18,7 @@ class Stack:
     def __len__(self):
         return self._length
     
-    def top(self):
+    def peek(self):
         return self._stack[-1]
     
     def is_empty(self):
