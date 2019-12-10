@@ -9,24 +9,26 @@ class BSTTest(unittest.TestCase):
     def test_to_array(self):
         self.test_bst.insert(5)
         self.test_bst.insert(2)
-        self.test_bst.insert(3)
+        self.test_bst.insert(7)
 
-        self.assertEqual(self.test_bst.to_array(), [5, 2, 3])
+        self.assertEqual(self.test_bst.to_array(), [2, 5, 7])
+        self.assertEqual(self.test_bst.to_array(key='preorder'), [5, 2, 7])
+        self.assertEqual(self.test_bst.to_array(key='postorder'), [2, 7, 5])
 
     def test_insert(self):
         self.test_bst.insert(5)
         self.test_bst.insert(2)
         self.test_bst.insert(3)
 
-        self.assertEqual(self.test_bst.to_array(), [5, 2, 3])
+        self.assertEqual(self.test_bst.to_array(), [2, 3, 5])
 
     def test_remove(self):
         self.test_bst.insert(5)
         self.test_bst.insert(2)
         self.test_bst.insert(3)
-
-        self.assertEqual(self.test_bst.remove(3), 3)
-        self.assertEqual(self.test_bst.to_array(), [5, 2])
+        self.test_bst.remove(3)
+        
+        self.assertEqual(self.test_bst.to_array(), [2, 5])
 
     def test_get_root(self):
         self.test_bst.insert(5)
