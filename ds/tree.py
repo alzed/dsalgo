@@ -13,17 +13,17 @@ class BST:
 
     def insert(self, item):
         if self._root:
-            self._root = self._insert(item, self._root)
+            self._root = self._insert_node(item, self._root)
         else:
             self._root = BinaryNode(item)
 
-    def _insert(self, item, node):
+    def _insert_node(self, item, node):
         if not node:
             return BinaryNode(item)
         elif item < node.data:
-            node.left = self._insert(item, node.left)
+            node.left = self._insert_node(item, node.left)
         elif item > node.data:
-            node.right = self._insert(item, node.right)
+            node.right = self._insert_node(item, node.right)
         return node
 
     def get_root(self):
@@ -74,55 +74,74 @@ class BST:
         return array
 
     def __contains__(self, item):
-        return True if self._search(item, self._root) else False
+        def search(item, root):
+            if not root:
+                return False
+            if item < root.data:
+                root = search(item, root.left)
+            elif item > root.data:
+                root = search(item, root.right)
+            return root
 
-    def _search(self, item, root):
-        if not root:
-            return False
-        if item < root.data:
-            root = self._search(item, root.left)
-        elif item > root.data:
-            root = self._search(item, root.right)
-        return root
+        return True if search(item, self._root) else False
 
     def remove(self, item):
-        self.delete_node(item, self._root)
-        
-    def delete_node(self, item, node):
-        if not node:
+        def minimum(node):
+            pre = None
+            while node:
+                pre = node
+                node = node.left
+            return pre
+
+        def delete_node(item, node):
+            if not node:
+                return node
+            elif item < node.data:
+                node.left = delete_node(item, node.left)
+            elif item >  node.data:
+                node.right = delete_node(item, node.right)
+            else:
+                if not node.left:
+                    temp = node.right
+                    node = None
+                    return temp
+
+                if not node.right:
+                    temp = node.left
+                    node = None 
+                    return temp
+
+                minimum = minimum(node.right)
+                node.data = minimum.data
+                node.right = delete_node(minimum.data, node.right) 
             return node
-        elif item < node.data:
-            node.left = self.delete_node(item, node.left)
-        elif item >  node.data:
-            node.right = self.delete_node(item, node.right)
-        else:
-            if not node.left:
-                temp = node.right
-                node = None
-                return temp
 
-            if not node.right:
-                temp = node.left
-                node = None 
-                return temp
-
-            minimum = self.minimum(node.right)
-            node.data = minimum.data
-            node.right = self.delete_node(minimum.data, node.right) 
-        return node
-
-    def minimum(self, node):
-        pre = None
-        while node:
-            pre = node
-            node = node.left
-        return pre
-
+        delete_node(item, self._root)
+        
     def size(self):
-        pass
+        return len(self.to_array())
 
-    def height(self):
-        pass
+    def min_height(self):
+        def get_min_height(node):
+            if not node: return 0
+            left = get_min_height(node.left)
+            right = get_min_height(node.right)
+            if left < right:
+                return left + 1
+            else:
+                return right + 1
+        return get_min_height(self._root)
+
+    def max_height(self):
+        def get_max_height(node):
+            if not node: return 0
+            left = get_max_height(node.left)
+            right = get_max_height(node.right)
+            if left > right:
+                return left + 1
+            else:
+                return right + 1
+        return get_max_height(self._root)
 
     def is_empty(self):
         return False if self._root else True
