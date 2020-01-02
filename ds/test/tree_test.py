@@ -14,6 +14,7 @@ class BSTTest(unittest.TestCase):
         self.assertEqual(self.test_bst.to_array(), [2, 5, 7])
         self.assertEqual(self.test_bst.to_array(key='preorder'), [5, 2, 7])
         self.assertEqual(self.test_bst.to_array(key='postorder'), [2, 7, 5])
+        self.assertEqual(self.test_bst.to_array(key='levelorder'), [5, 2, 7])
 
     def test_insert(self):
         self.test_bst.insert(5)

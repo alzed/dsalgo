@@ -1,3 +1,5 @@
+from .queue import Queue
+
 class BinaryNode:
     def __init__(self, data, left=None, right=None):
         self.data = data
@@ -47,6 +49,8 @@ class BST:
             return self._preorder(self._root, arr)
         elif key == 'postorder':
             return self._postorder(self._root, arr)
+        elif key == 'levelorder':
+            return self._levelorder(arr)
         return self._inorder(self._root, arr)
 
     def _preorder(self, node, array):
@@ -71,6 +75,16 @@ class BST:
         self._inorder(node.left, array)
         self._inorder(node.right, array)
         array.append(node.data)
+        return array
+
+    def _levelorder(self, array):
+        q = Queue()
+        q.enqueue(self._root)
+        while len(q):
+            node = q.dequeue()
+            array.append(node.data)
+            if node.left: q.enqueue(node.left)
+            if node.right: q.enqueue(node.right)
         return array
 
     def __contains__(self, item):
