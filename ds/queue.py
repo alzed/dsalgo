@@ -7,11 +7,11 @@ class Queue:
     def to_array(self):
         return list(self._queue)
 
-    def enque(self, item):
+    def enqueue(self, item):
         self._queue.append(item)
         self._length += 1
 
-    def deque(self):
+    def dequeue(self):
         self._length -= 1
         return self._queue.pop(0)
 
