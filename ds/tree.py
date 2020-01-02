@@ -137,7 +137,7 @@ class BST:
 
     def min_height(self):
         def get_min_height(node):
-            if not node: return 0
+            if not node: return -1
             left = get_min_height(node.left)
             right = get_min_height(node.right)
             if left < right:
@@ -148,7 +148,7 @@ class BST:
 
     def max_height(self):
         def get_max_height(node):
-            if not node: return 0
+            if not node: return -1
             left = get_max_height(node.left)
             right = get_max_height(node.right)
             if left > right:

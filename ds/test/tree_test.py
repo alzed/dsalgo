@@ -73,7 +73,7 @@ class BSTTest(unittest.TestCase):
         self.test_bst.insert(2)
         self.test_bst.insert(7)
 
-        self.assertEqual(self.test_bst.min_height(), 2)
+        self.assertEqual(self.test_bst.min_height(), 1)
     
     def test_max_height(self):
         self.test_bst.insert(5)
@@ -81,7 +81,7 @@ class BSTTest(unittest.TestCase):
         self.test_bst.insert(7)
         self.test_bst.insert(1)
 
-        self.assertEqual(self.test_bst.max_height(), 3)
+        self.assertEqual(self.test_bst.max_height(), 2)
     
     def test_is_empty(self):
         self.assertEqual(self.test_bst.is_empty(), True)
