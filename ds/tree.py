@@ -125,9 +125,9 @@ class BST:
                     node = None 
                     return temp
 
-                minimum = minimum(node.right)
-                node.data = minimum.data
-                node.right = delete_node(minimum.data, node.right) 
+                min_node = minimum(node.right)
+                node.data = min_node.data
+                node.right = delete_node(min_node.data, node.right) 
             return node
 
         delete_node(item, self._root)
