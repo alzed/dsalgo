@@ -1,7 +1,7 @@
-from copy import deepcopy
+# Selection sort algorithm
 
 def selection_sort(arr):
-    array = deepcopy(arr)
+    array = arr.copy()
     arr_len = len(array)
     for i in range(arr_len):
         minimum = i

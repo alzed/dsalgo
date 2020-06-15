@@ -1,8 +1,7 @@
 # Bubble sort algorithm
-from copy import deepcopy
 
 def bubble_sort(arr):
-    array = deepcopy(arr)
+    array = arr.copy()
     n = len(array) - 1
     while n:
         checks = 0

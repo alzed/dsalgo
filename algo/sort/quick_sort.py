@@ -1,8 +1,8 @@
-from copy import deepcopy
+# Quick sort algorithm
 from random import randint
 
 def quick_sort(array):
-    arr = deepcopy(array)
+    arr = array.copy()
     quick_sort_helper(arr, 0, len(arr)-1)
     return arr
 

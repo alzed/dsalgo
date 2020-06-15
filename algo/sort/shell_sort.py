@@ -1,7 +1,7 @@
-from copy import deepcopy
+# Shell sort algorithm
 
 def shell_sort(array):
-    arr = deepcopy(array)
+    arr = array.copy()
     sub_arr_len = len(array)//2
 
     while sub_arr_len > 0:

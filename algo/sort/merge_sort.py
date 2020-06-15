@@ -1,9 +1,7 @@
 # Merge sort algorithm
 
-from copy import deepcopy
-
 def merge_sort(array):
-    arr = deepcopy(array)
+    arr = array.copy()
     m_sort(arr)
     return arr
 

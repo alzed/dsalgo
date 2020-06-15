@@ -1,7 +1,7 @@
-from copy import deepcopy
+# Insertion sort algorithm
 
 def insertion_sort(arr):
-    array = deepcopy(arr)
+    array = arr.copy()
     arr_len = len(array)
     for i in range(1, arr_len):
         temp = array[i]
