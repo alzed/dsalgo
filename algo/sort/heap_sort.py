@@ -44,6 +44,3 @@ def min_heapify(array, pos, length):
     if not smallest == pos:
         array[pos], array[smallest] = array[smallest], array[pos]
         min_heapify(array, smallest, length)
-
-
-heap_sort([4,3,2,1])
