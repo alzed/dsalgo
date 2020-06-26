@@ -6,3 +6,4 @@ from .deque import Deque
 from .linkedlist import Linkedlist
 from .doubly_linkedlist import DoublyLinkedlist
 from .tree import BST
+from .heap import Heap
