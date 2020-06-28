@@ -7,3 +7,4 @@ from .linkedlist import Linkedlist
 from .doubly_linkedlist import DoublyLinkedlist
 from .tree import BST
 from .heap import Heap
+from .priority_queue import PriorityQueue
