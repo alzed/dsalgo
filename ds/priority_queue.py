@@ -32,6 +32,9 @@ class PriorityQueue:
                 self._array[pos], self._array[pos//2] = self._array[pos//2], self._array[pos]
                 pos //= 2
 
+    def first(self):
+        return self._array[1]
+        
     def _max_heapify(self, pos):
         left = 2*pos
         right = 2*pos + 1
